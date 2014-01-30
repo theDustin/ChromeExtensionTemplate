@@ -1,0 +1,20 @@
+{
+    "extName" : {
+        "message" : "Extension Name",
+        "description" : "The name of the extension"
+    },
+    "extDesc" : {
+        "message" : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+        "description" : "The description of the extension"
+    },
+    "error" : {
+        "message" : "Error: $details$",
+        "description" : "Generic error template. Expects error parameter to be passed in.",
+        "placeholders" : {
+            "details" : {
+                "content" : "$1",
+                "example" : "Failed to fetch RSS feed."
+            }
+        }
+    }
+}

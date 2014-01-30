@@ -1,0 +1,20 @@
+{
+    "extName" : {
+        "message" : "Erweiterungsname",
+        "description" : "Der Name der Erweiterung"
+    },
+    "extDesc" : {
+        "message" : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+        "description" : "Die Beschreibung der Erweiterung"
+    },
+    "error" : {
+        "message" : "Error: $details$",
+        "description" : "Fehlermeldungstemplate. Erwartet einen Fehler als Parameter",
+        "placeholders" : {
+            "details" : {
+                "content" : "$1",
+                "example" : "Failed to fetch RSS feed."
+            }
+        }
+    }
+}
