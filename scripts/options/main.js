@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (_mValue.indexOf(oNode.value) !== -1);
                     })[0] || {}).checked = true;
                 } else {
-                    console.dir(_aElements);
                     console.info("No input[name=%s] found", _sKey);
                 }
             } else if(_mValue instanceof Array){
@@ -81,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                 } else {
-                    console.info("%O for key %s is of unknown type", _sKey, oNode);
+                    console.info("%O for key %s is of unknown type", _aElements, _sKey);
                 }
 
             } else {
