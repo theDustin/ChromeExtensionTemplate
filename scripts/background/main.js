@@ -94,12 +94,8 @@ window.addEventListener("load", function () {
         // return true;
     }
 
-    chrome.extension.onRequest.addListener(function () {
-        console.info("chrome.extension.onRequest(%O)", arguments);
-    });
-
     chrome.webNavigation.onDOMContentLoaded.addListener(function (oDetails) {
-        console.info("chrome.webNavigation.onDOMContentLoaded(%O)", oDetails);
+        console.info("chrome.webNavigation.onDOMContentLoaded(%O) :: ready to inject", oDetails);
 
         var iTabId = oDetails.tabId;
 
@@ -110,7 +106,7 @@ window.addEventListener("load", function () {
             //            });
 
             chrome.tabs.executeScript(oTab.id, {
-                file : 'background/inject.js',
+                file : '/scripts/background/inject.js',
                 runAt : 'document_start'
             });
         });
