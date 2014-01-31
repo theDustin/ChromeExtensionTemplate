@@ -55,6 +55,7 @@ function EasyStorage(iForceStorageType) {
                 this._bUsedLocalStorage = false;
                 this._oStorage = chrome.storage.managed;
                 break;
+            case EasyStorage.Storage.Window:
             case EasyStorage.Storage.WindowLocal:
                 this._bUsedChromeStorage = false;
                 this._bUsedLocalStorage = true;
@@ -81,7 +82,7 @@ EasyStorage.Storage = {
      */
     None : 0,
     /**
-     * Force the EasyStorage to use the default Storage (chrome.storage.sync)
+     * Force the EasyStorage to use the default chrome Storage (chrome.storage.sync)
      */
     Chrome : 1,
     /**
@@ -98,13 +99,17 @@ EasyStorage.Storage = {
      */
     ChromeManaged : 4,
     /**
+     * Force the EasyStorage to use the default window Storage (window.localStorage)
+     */
+    Window : 5,
+    /**
      * Force the EasyStorage to use the window.localStorage Storage
      */
-    WindowLocal : 5,
+    WindowLocal : 6,
     /**
      * Force the EasyStorage to use the window.sessionStorage Storage
      */
-    WindowSession : 6
+    WindowSession : 7
 };
 
 /**
