@@ -1,7 +1,10 @@
 /**
- * User: dbreuer
- * Date: 30.01.14
- * Time: 15:02
+ * Chrome-Extension-Template v1.0
+ *
+ * @author Dustin Breuer <dustin.breuer@thedust.in>
+ * @version 1.0
+ * @category chrome-extension
+ * @licence MIT http://opensource.org/licenses/MIT
  */
 
 /**

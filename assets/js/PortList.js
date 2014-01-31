@@ -1,4 +1,13 @@
 /**
+ * Chrome-Extension-Template v1.0
+ *
+ * @author Dustin Breuer <dustin.breuer@thedust.in>
+ * @version 1.0
+ * @category chrome-extension
+ * @licence MIT http://opensource.org/licenses/MIT
+ */
+
+/**
  *
  * @constructor
  */
@@ -90,7 +99,7 @@ PortList.prototype.index = function (oPort) {
  * @this {Message}
  * @private
  */
-PortList._sendBroadcast = function(oPort){
+PortList.__sendBroadcast = function (oPort) {
     oPort.postMessage(this);
 };
 
@@ -102,7 +111,7 @@ PortList._sendBroadcast = function(oPort){
  * @returns {PortList}
  */
 PortList.prototype.sendBroadcast = function (oMessage) {
-    this._aPorts.forEach(PortList._sendBroadcast, oMessage);
+    this._aPorts.forEach(PortList.__sendBroadcast, oMessage);
 
     return this;
 };

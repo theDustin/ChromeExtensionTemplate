@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+ * Chrome-Extension-Template v1.0
+ *
+ * @author Dustin Breuer <dustin.breuer@thedust.in>
+ * @version 1.0
+ * @category chrome-extension
+ * @licence MIT http://opensource.org/licenses/MIT
+ -->
 <html class="pure-skin-ext">
 <head>
     <meta charset="utf-8">
@@ -8,6 +16,7 @@
     <link href="/assets/css/pure.css" rel="stylesheet" />
     <link href="/assets/css/options.css" rel="stylesheet" />
 
+    <script src="/assets/js/EasyStorage.js"></script>
     <script src="/scripts/options/main.js"></script>
 
 </head>
@@ -31,19 +40,71 @@
                 <option>IL</option>
             </select>
 
+            <label for="stateList">State</label>
+            <select id="stateList" name="statelist" multiple="multiple">
+                <option>AL</option>
+                <option>CA</option>
+                <option>IL</option>
+            </select>
+
             <label for="remember" class="pure-checkbox">
                 <input id="remember" name="remember" type="checkbox"> Remember me
             </label>
 
             <label for="text">
-                <textarea id="text" name="text"></textarea>
+                <textarea id="text" name="text">inital value</textarea>
             </label>
+
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="1" /> 1
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="2" /> 2
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="3" /> 3
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="4" /> 4
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="5" /> 5
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="myRadio" value="1" /> 1
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="myRadio" value="2" /> 2
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="myRadio" value="3" /> 3
+                    </label>
+                </li>
+            </ul>
 
             <button type="submit" class="pure-button pure-button-primary">Sign in</button>
         </fieldset>
     </form>
 </div>
-
 
 
 </body>

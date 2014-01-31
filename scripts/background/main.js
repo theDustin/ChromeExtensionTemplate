@@ -1,8 +1,8 @@
 /**
- * Chrome-Extension-Template v0.0
+ * Chrome-Extension-Template v1.0
  *
  * @author Dustin Breuer <dustin.breuer@thedust.in>
- * @version 0.0
+ * @version 1.0
  * @category chrome-extension
  * @licence MIT http://opensource.org/licenses/MIT
  */
@@ -18,16 +18,16 @@ window.addEventListener("load", function () {
         /**
          * @class
          */
-        InitMessage = Message.createMessageType("init"),
+            InitMessage = Message.createMessageType("init"),
         /***
          * @class
          */
-        ConfigMessage = Message.createMessageType("config",
+            ConfigMessage = Message.createMessageType("config",
             /**
              * @lends Message.prototype
              */
             {
-                foo: "bar"
+                foo : "bar"
             }
         );
 
@@ -85,7 +85,7 @@ window.addEventListener("load", function () {
             case "init":
 
                 oSendResponse(new ConfigMessage({
-                    foo: "myBar"
+                    foo : "myBar"
                 }));
                 break;
         }
@@ -105,10 +105,10 @@ window.addEventListener("load", function () {
         var iTabId = oDetails.tabId;
 
         chrome.tabs.get(iTabId, function (oTab) {
-//            chrome.tabs.insertCSS(oTab.id, {
-//                file : 'background/inject-style.css',
-//                runAt : 'document_start'
-//            });
+            //            chrome.tabs.insertCSS(oTab.id, {
+            //                file : 'background/inject-style.css',
+            //                runAt : 'document_start'
+            //            });
 
             chrome.tabs.executeScript(oTab.id, {
                 file : 'background/inject.js',
