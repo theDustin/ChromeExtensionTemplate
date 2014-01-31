@@ -18,7 +18,7 @@ window.addEventListener("load", function () {
         /**
          * @class
          */
-            InitMessage = Message.createMessageType("init"),
+            HelloMessage = Message.createMessageType("hello"),
         /***
          * @class
          */
@@ -48,8 +48,7 @@ window.addEventListener("load", function () {
         oPort.onDisconnect.addListener(_onRuntimePortDisconnect);
         oPort.onMessage.addListener(_onRuntimePortMessage);
 
-        oPort.postMessage(new InitMessage());
-        oPort.postMessage(new ConfigMessage());
+        oPort.postMessage(new HelloMessage());
     }
 
     /**
@@ -82,7 +81,7 @@ window.addEventListener("load", function () {
         console.info("Receive %O by %O", oMessage, oSender);
 
         switch (oMessage.type) {
-            case "init":
+            case HelloMessage.Type:
 
                 oSendResponse(new ConfigMessage({
                     foo : "myBar"

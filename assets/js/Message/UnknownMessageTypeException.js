@@ -12,8 +12,9 @@
  * @constructor
  * @augments ReferenceError
  */
-Message.UnknownMessageTypeException = function () {
-    ReferenceError.apply(this, arguments);
+Message.UnknownMessageTypeException = function (sMsg) {
+    ReferenceError.call(this);
+    this.message = sMsg;
 };
 
 Message.UnknownMessageTypeException.prototype = Object.create(Error.prototype);
@@ -22,7 +23,7 @@ Message.UnknownMessageTypeException.prototype.constructor = Message.UnknownMessa
 /**
  * Create an UnknownMessageTypeException with the Message "Message with type <i>sMessageType</i> is unknown"
  *
- * @param {String} sMessageType The Type of the unkown Message
+ * @param {String} sMessageType The Type of the unknown Message
  *
  * @returns {Message.UnknownMessageTypeException}
  */

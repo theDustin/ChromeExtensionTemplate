@@ -16,17 +16,39 @@ function Message() {
     /**
      * The Type of the message
      * @type {string}
+     * @readonly
      */
     this.type = "undefined";
 
 }
 
 /**
+ * The Type of the message
+ *
+ * @type {string}
+ * @readonly
+ */
+Message.Type = "undefined";
+
+/**
+ * A cache-object for message-type to messages
  *
  * @type {Object.<String, Message>}
  * @private
  */
 Message.__types = {};
+
+/**
+ * Compare the message types(!) of message <i>this</i> and the message <i>oMessage</i>
+ * This is not a deep compare
+ *
+ * @param {Message} oMessage
+ *
+ * @returns {boolean}
+ */
+Message.prototype.isEqual = function (oMessage) {
+    return this.type === oMessage.type;
+};
 
 /**
  * Create a new Message-Type (Factory)
@@ -49,7 +71,7 @@ Message.createMessageType = function (sMessageType, mDefaultValues) {
      * @extends {Message}
      * @private
      */
-    function _oNewMessage() {
+    function ExtendedMessage() {
         Message.call(this);
 
         this.type = sMessageType;
@@ -62,12 +84,14 @@ Message.createMessageType = function (sMessageType, mDefaultValues) {
         }
     }
 
-    _oNewMessage.prototype = Object.create(Message.prototype);
-    _oNewMessage.prototype.constructor = _oNewMessage;
+    ExtendedMessage.Type = sMessageType;
 
-    Message.__types[sMessageType] = _oNewMessage;
+    ExtendedMessage.prototype = Object.create(Message.prototype);
+    ExtendedMessage.prototype.constructor = ExtendedMessage;
 
-    return _oNewMessage;
+    Message.__types[sMessageType] = ExtendedMessage;
+
+    return ExtendedMessage;
 };
 
 /**
@@ -85,6 +109,24 @@ Message.createMessageByType = function (sMessageType) {
     }
 
     return new Message.__types[sMessageType];
+};
+
+/**
+ * Create a Message by a postMessage-Object
+ *
+ * @param {Object.<String, *>} oPlainObject
+ *
+ * @returns {Message}
+ */
+Message.createMessageByPlainObject = function (oPlainObject) {
+    if (!oPlainObject.type) {
+        throw new ReferenceError("No property 'type' found in Object");
+    }
+
+    var _sType = oPlainObject.type;
+    delete oPlainObject.type;
+
+    return Message.createMessage(_sType, oPlainObject);
 };
 
 /**

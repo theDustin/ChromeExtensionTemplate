@@ -10,10 +10,11 @@
 /**
  *
  * @constructor
- * @augments Error
+ * @augments ReferenceError
  */
-Message.DuplicatedMessageTypeException = function () {
-    Error.apply(this, arguments);
+Message.DuplicatedMessageTypeException = function (sMsg) {
+    ReferenceError.call(this);
+    this.message = sMsg;
 };
 
 Message.DuplicatedMessageTypeException.prototype = Object.create(Error.prototype);
